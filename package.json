@@ -1,5 +1,5 @@
 {
-  "name": "ifs24030-pabwe2026-sk-p5-nuxt",
+  "name": "ifs24038-pabwe2026-sk-p5-nuxt",
   "type": "module",
   "private": true,
   "scripts": {
@@ -24,11 +24,6 @@
     "tailwind-merge": "^3.0.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
-  },
-  "overrides": {
-    "dompurify": "^3.2.4",
-    "esbuild": "^0.24.2",
-    "cookie": "^1.0.2"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
