@@ -7,7 +7,7 @@ describe("App.vue", () => {
     const wrapper = mount(App, {
       global: {
         stubs: {
-          RouterView: {
+          NuxtPage: {
             template: '<div data-testid="router-view-content">Page Content</div>'
           }
         }

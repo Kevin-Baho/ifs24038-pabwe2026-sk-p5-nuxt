@@ -639,22 +639,10 @@ const _inlineRuntimeConfig = {
     "routeRules": {
       "/__nuxt_error": {
         "cache": false
-      },
-      "/_nuxt/builds/meta/**": {
-        "headers": {
-          "cache-control": "public, max-age=31536000, immutable"
-        }
-      },
-      "/_nuxt/builds/**": {
-        "headers": {
-          "cache-control": "public, max-age=1, immutable"
-        }
       }
     }
   },
-  "public": {
-    "delcomBaseUrl": "https://open-api.delcom.org/api/v1"
-  }
+  "public": {}
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -2057,7 +2045,7 @@ const _yrG029K3Lp2hmTpraNRPA5V1eGnJ7q1lVhUG7t13yY = (function(nitro) {
 
 const rootDir = "D:/Dokumen/KULIAH/Semester 5/PABWE/Tugas/Praktikum/ifs24038-pabwe2026-sk-p5-nuxt";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"}],"style":[],"script":[],"noscript":[],"title":"Delcom Cash Flow"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[{"rel":"icon","type":"image/svg+xml","href":"/logo.svg"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"}],"style":[],"script":[],"noscript":[],"title":"Delcom Cash Flow","htmlAttrs":{"lang":"id"},"bodyAttrs":{"class":"bg-slate-50 text-slate-900 font-sans antialiased min-h-screen"}};
 
 const appRootTag = "div";
 
@@ -2169,7 +2157,7 @@ function readAsset (id) {
   return promises.readFile(resolve$1(serverDir, assets[id].path))
 }
 
-const publicAssetBases = {"/_nuxt/builds/meta/":{"maxAge":31536000},"/_nuxt/builds/":{"maxAge":1}};
+const publicAssetBases = {};
 
 function isPublicAssetURL(id = '') {
   if (assets[id]) {
@@ -3317,18 +3305,6 @@ async function renderRoute(event, ssrError) {
 	const NO_SCRIPTS = routeOptions.noScripts;
 	
 	const { styles, scripts } = getRequestDependencies(ssrContext, renderer.rendererContext);
-	if (ssrContext["~preloadManifest"] && !NO_SCRIPTS) {
-		ssrContext.head.push({ link: [{
-			rel: "preload",
-			as: "fetch",
-			fetchpriority: "low",
-			crossorigin: "anonymous",
-			href: buildAssetsURL(`builds/meta/${ssrContext.runtimeConfig.app.buildId}.json`)
-		}] }, {
-			...headEntryOptions,
-			tagPriority: "low"
-		});
-	}
 	
 	if (inlinedStyles.length) {
 		ssrContext.head.push({ style: inlinedStyles });

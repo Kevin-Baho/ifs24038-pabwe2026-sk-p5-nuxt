@@ -1,7 +1,8 @@
 import type { RouterConfig } from "@nuxt/schema";
-import { routes } from "./routes";
+import { createAppRouter } from "./router";
 
 export default <RouterConfig>{
-  routes: (_routes) => routes
+  createRouter: () => {
+    return createAppRouter();
+  },
 };
-

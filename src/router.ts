@@ -5,13 +5,13 @@ import { getAccessToken } from "./helpers/apiHelper";
 export function createAppRouter(): Router {
   const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
   });
 
   router.beforeEach((to, from, next) => {
     const token = getAccessToken();
-    const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
-    const requiresGuest = to.matched.some((record) => record.meta.requiresGuest);
+    const requiresAuth = to.matched.some((record) => record.meta?.requiresAuth);
+    const requiresGuest = to.matched.some((record) => record.meta?.requiresGuest);
 
     if (requiresAuth && !token) {
       next({ path: "/login" });
@@ -26,4 +26,3 @@ export function createAppRouter(): Router {
 }
 
 export const router = createAppRouter();
-

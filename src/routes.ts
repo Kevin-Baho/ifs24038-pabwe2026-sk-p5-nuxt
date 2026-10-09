@@ -11,28 +11,30 @@ import NotFoundPage from "./features/common/pages/NotFoundPage.vue";
 
 export const routes: RouteRecordRaw[] = [
   {
-    path: "/login",
+    path: "/auth/login",
+    alias: "/login",
     component: AuthLayout,
     children: [
       {
         path: "",
         name: "login",
         component: LoginPage,
-        meta: { requiresGuest: true }
-      }
-    ]
+        meta: { requiresGuest: true },
+      },
+    ],
   },
   {
-    path: "/register",
+    path: "/auth/register",
+    alias: "/register",
     component: AuthLayout,
     children: [
       {
         path: "",
         name: "register",
         component: RegisterPage,
-        meta: { requiresGuest: true }
-      }
-    ]
+        meta: { requiresGuest: true },
+      },
+    ],
   },
   {
     path: "/",
@@ -42,32 +44,32 @@ export const routes: RouteRecordRaw[] = [
         path: "",
         name: "home",
         component: HomePage,
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: true },
       },
       {
-        path: "detail/:id",
+        path: "cash-flows/:cashFlowId",
+        alias: "detail/:id",
         name: "detail",
         component: DetailPage,
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: true },
       },
       {
         path: "users",
         name: "users",
         component: UsersPage,
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: true },
       },
       {
         path: "profile",
         name: "profile",
         component: ProfilePage,
-        meta: { requiresAuth: true }
-      }
-    ]
+        meta: { requiresAuth: true },
+      },
+    ],
   },
   {
     path: "/:pathMatch(.*)*",
     name: "not-found",
-    component: NotFoundPage
-  }
+    component: NotFoundPage,
+  },
 ];
-
