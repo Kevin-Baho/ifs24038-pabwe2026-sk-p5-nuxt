@@ -7,7 +7,7 @@ import {
   putProfile,
   type User,
 } from "../api/userApi";
-import { getErrorMessage } from "../../../helpers/apiHelper";
+import { getErrorMessage, removeAccessToken } from "../../../helpers/apiHelper";
 import { showErrorDialog, showSuccessDialog } from "../../../helpers/toolsHelper";
 
 export type { User };
@@ -52,12 +52,17 @@ export const useUsersStore = defineStore("users", {
       this.users = response.data.users;
     },
 
-    async asyncGetProfile() {
+    async asyncGetProfile(silent = false) {
       this.isProfile = true;
       const response = await getProfile();
       this.isProfile = false;
 
       if (response.status !== "success") {
+        this.profile = null;
+        if (silent) {
+          removeAccessToken();
+          return;
+        }
         showErrorDialog(getErrorMessage(response));
         return;
       }

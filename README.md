@@ -3,7 +3,7 @@
 Studi Kasus 2 - PABWE 2026 P5. Sumber data: https://open-api.delcom.org/docs/1.0/api-cash-flows
 
 ## Persiapan
-1. Ganti `name` di `package.json` (dan nama folder) menjadi `{ifs24030}-pabwe2026-sk-p5-nuxt`.
+1. Ganti `name` di `package.json` (dan nama folder) menjadi `{ifs24028}-pabwe2026-sk-p5-nuxt`.
 2. `bun install`
 3. Salin `.env.example` menjadi `.env` bila belum ada (`VITE_DELCOM_BASEURL`, `APP_PORT`).
 

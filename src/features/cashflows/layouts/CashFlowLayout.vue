@@ -25,8 +25,8 @@ onMounted(async () => {
     <NavbarComponent @toggle="sidebarOpen = !sidebarOpen" />
     <SidebarComponent :open="sidebarOpen" @close="sidebarOpen = false" />
 
-    <main class="p-4 sm:p-6 lg:ml-64">
+    <div class="p-4 sm:p-6 lg:ml-64">
       <RouterView />
-    </main>
+    </div>
   </div>
 </template>

@@ -112,3 +112,4 @@ export function getErrorMessage(response: ApiResponse): string {
 
   return details ? `${response.message}: ${details}` : response.message;
 }
+    

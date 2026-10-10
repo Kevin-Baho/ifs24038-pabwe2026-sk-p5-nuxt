@@ -20,6 +20,7 @@ import {
   putProfile,
   type User,
 } from "../api/userApi";
+import { getAccessToken, putAccessToken } from "../../../helpers/apiHelper";
 import { showErrorDialog, showSuccessDialog } from "../../../helpers/toolsHelper";
 import { createMockPinia } from "../../../test-utils";
 import { useUsersStore } from "./usersStore";
@@ -85,6 +86,18 @@ describe("usersStore", () => {
 
     expect(store.profile).toBeNull();
     expect(showErrorDialog).toHaveBeenCalledWith("Gagal");
+  });
+
+  it("asyncGetProfile silent menghapus token tanpa dialog saat gagal", async () => {
+    putAccessToken("expired");
+    vi.mocked(getProfile).mockResolvedValue(fail("Unauthenticated."));
+    const store = useUsersStore();
+
+    await store.asyncGetProfile(true);
+
+    expect(store.profile).toBeNull();
+    expect(getAccessToken()).toBeNull();
+    expect(showErrorDialog).not.toHaveBeenCalled();
   });
 
   it("asyncChangeProfile memperbarui profil", async () => {

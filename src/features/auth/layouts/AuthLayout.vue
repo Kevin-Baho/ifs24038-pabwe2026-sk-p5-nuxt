@@ -13,7 +13,7 @@ const inactiveTab =
 </script>
 
 <template>
-  <main
+  <div
     class="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 to-indigo-50 px-4 py-10">
     <div class="w-full max-w-md">
       <div class="mb-8 text-center">
@@ -46,5 +46,5 @@ const inactiveTab =
         <RouterView />
       </div>
     </div>
-  </main>
+  </div>
 </template>
